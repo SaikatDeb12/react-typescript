@@ -5,18 +5,35 @@ interface Props {
   onClick?: () => void;
 }
 
+interface Book {
+  name: string;
+  price: number;
+}
+
 const MyButton: React.FC<Props> = ({ text, onClick }) => {
-  const [value, setValue] = useState(1);
+  const [count, setCount] = useState(1);
+  const [value, setValue] = useState<Book>();
+
   return (
     <div>
-      <h1>{value}</h1>
+      <h1>{count}</h1>
       <button
         onClick={() => {
-          setValue(value + 1);
+          setCount(count + 1);
         }}
       >
         Click Me
       </button>
+      <button
+        onClick={() => {
+          setValue({ name: "solo leveling", price: 1234 });
+        }}
+      >
+        Show Details
+      </button>
+      {value && (
+        <p>{`Book name: ${value?.name} with price: ${value?.price}`}</p>
+      )}
     </div>
   );
 };
