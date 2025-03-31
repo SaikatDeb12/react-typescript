@@ -5,7 +5,8 @@ import MyButton from "./components/MyButton";
 const App: FC = () => {
   return (
     <div className="App">
-      <MyButton text="Click Me" onClick={() => alert("hello world")} />
+      {/* <MyButton text="Click Me" onClick={() => alert("hello world")} /> */}
+      <MyButton text="anotherBtn" />
     </div>
   );
 };
